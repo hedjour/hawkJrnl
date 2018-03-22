@@ -308,7 +308,8 @@ function human_edit_form(id){
 	});
 }
 function clean_humanform(){
-	document.getElementById("bird-form-title").innerHTML="Add Human";
+//	document.getElementById("bird-form-title").innerHTML="Add Human";		//Old version
+	document.getElementById("bird-form-title").innerHTML="Add Bird";		//Odelin's try
 	$('#first_name').val("");
 	$('#name').val("");
 }
