@@ -61,7 +61,7 @@ include_once("fonctions.php");
 	}else{
 		$reponse.="privat status undefined";
 		$bug=1;
-	}
+	}/*
     if ( isset($_POST['father'])  ){ //&& (is_numeric($_POST['father_id']))
 		$father_id=$_POST['father'];
 	}else{
@@ -73,7 +73,7 @@ include_once("fonctions.php");
 	}else{
 		$reponse.="Mother is undefined";
 		$bug=1;
-	}
+	}*/
 	 if ( isset($_POST['wild']) ){ // && (is_numeric($_POST['wild']))
 			$wild=$_POST['wild'];
 		}else{
@@ -85,7 +85,7 @@ include_once("fonctions.php");
 		}elseif( ! isset($_POST['cd_cal']) ){
 			$captureDate="";
 		}else{
-			$reponse="capture date undefine";
+			$reponse="Capture date is undefined";
 			$bug=1;
 		}
 	 if ( isset($_POST['country'])){ // && (is_numeric($_POST['country']))
@@ -97,7 +97,7 @@ include_once("fonctions.php");
 	/*
 	  * Picture System
 	  *
-	 */
+	 *//*
 	if (isset($_FILES['userfile']) &&  $_FILES['userfile']->name !="") {
 		var_dump("FILE set");
 		var_dump($_FILES['userfile']);
@@ -130,13 +130,13 @@ include_once("fonctions.php");
 
 	// Check if $uploadOk is set to 0 by an error
 	    if ($uploadOk == 0){
-	       $reponse .= "Le fichier ne peut être charger<br>";
+	       $reponse .= "Le fichier ne peut être chargé<br>";
 	// if everything is ok, try to upload file
 	    }else{
 	        if (move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file)) {
 	            $reponse .= "Le fichier " . basename($_FILES["userfile"]["name"]) . " est chargé.<br>";
 	            $base=connectBase();
-				$sqlimage='INSERT INTO image VALUES("", "'.$target_file.'")';
+				$sqlimage='INSERT INTO image (path) VALUES("'.$target_file.'")';
 				mysqli_query($base, $sqlimage) or die ('Erreur SQL image!'.$sql.'<br />'.mysqli_error($base));
 				$getMaxImageID='SELECT MAX(id) FROM image';
 				$picture=mysqli_fetch_assoc(mysqli_query($base, $getMaxImageID))["MAX(id)"] ;
@@ -149,7 +149,7 @@ include_once("fonctions.php");
 	} else{
 		//var_dump("no user picture");
 		$picture=1;
-	}
+	}*/$picture=1;
 	 //var_dump($picture);
  if ( (! isset($bug)) || ($bug==0) ){
     $reponse.= 'Bird added';
@@ -160,9 +160,9 @@ include_once("fonctions.php");
     $base=connectBase();
 
     //On prépare la commande sql d'insertion
-    $sql = 'INSERT INTO bird VALUES(
-    "","'.
-    $nom.'","'.
+    $sql = 'INSERT INTO bird (nom, sex, species, birth_date, death_date, owner, privat, father_id, mother_id, wild, captureDate, Country, picture) 
+	VALUES(
+    "'.$nom.'","'.
     $sex.'","'.
     $species.'","'.
     $birth_date.'","'.

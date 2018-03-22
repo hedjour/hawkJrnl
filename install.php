@@ -8,8 +8,8 @@ $base=connectBase();
 //file_uploads = On
 
 //Création des tables :
-//Human 3 col
-$sql_tbl_human = <<< SQL
+//Human 3 col/*
+/*$sql_tbl_human = <<< SQL
 		 CREATE TABLE IF NOT EXISTS `human` (
 				`id` INT NOT NULL AUTO_INCREMENT,
 				PRIMARY KEY (`id`),
@@ -17,7 +17,16 @@ $sql_tbl_human = <<< SQL
 				`name` VARCHAR(15),
 				`firstname` VARCHAR(15)
 				);
-SQL;
+SQL;*/
+$sql_tbl_human = "
+		 CREATE TABLE IF NOT EXISTS `human` (
+				`id` INT NOT NULL AUTO_INCREMENT,
+				PRIMARY KEY (`id`),
+				INDEX (`id`),
+				`name` VARCHAR(15),
+				`firstname` VARCHAR(15)
+				);
+";
 mysqli_query($base, $sql_tbl_human ) or die("<pre>Erreur:\nrequete: $sql_tbl_human\n".mysqli_error($base)."\n</pre>\n");
 echo("Human table created <br/>");
 
@@ -112,8 +121,8 @@ mysqli_query( $base, $sql_inser_img ) or die("<pre>Erreur:\nrequete: $sql_inser_
 
 $sql_inser_bird = <<<SQL
 		INSERT INTO `bird` (id, nom, sex, species, birth_date, death_date, owner, privat, father_id, mother_id, wild, captureDate, Country, picture) VALUES
-					(1, "Hawke", 1, NULL, "1900-01-01", "1900-01-01", "Falci-God", 0, 2, 1, 0, "1900-01-01", "Earth", 1),
-					(2, "Hobereau", 0, NULL, "1900-01-01", "1900-01-01", "Falci-God", 0, 2, 1, 0, "1900-01-01", "Earth", 1);
+					(1, "Hawke", 1, "toto", "1900-01-01", "1900-01-01", "Falci-God", 0, 2, 1, 0, "1900-01-01", "Earth", 1),
+					(2, "Hobereau", 0, "tata", "1900-01-01", "1900-01-01", "Falci-God", 0, 2, 1, 0, "1900-01-01", "Earth", 1);
 SQL;
 
 mysqli_query($base, $sql_inser_bird) or die ('Erreur SQL add bird 0 failed!'.$sql_inser_bird.'<br />'.mysqli_error($base));

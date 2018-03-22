@@ -74,7 +74,8 @@
     $base=connectBase();
 
     //On prépare la commande sql d'insertion
-    $sql = 'INSERT INTO jrnl VALUES("","'.$dat.'","'.$birdid.'","'.$weight.'","'.$perf.'","'.$quarrytaken.'","'.$food.'","'.$state.'","'.$run.'","'.$taker.'")';
+    $sql = 'INSERT INTO jrnl (day, bird_id, weight, performance, quarrytaken, food, state, run, taker)
+	VALUES("'.$dat.'","'.$birdid.'","'.$weight.'","'.$perf.'","'.$quarrytaken.'","'.$food.'","'.$state.'","'.$run.'","'.$taker.'")';
 
     /*on lance la commande (mysqli_query) et au cas où,
     on rédige un petit message d'erreur si la requête ne passe pas (or die)

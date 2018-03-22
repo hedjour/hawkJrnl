@@ -26,7 +26,7 @@
 		$base=connectBase();
 
 		//On prépare la commande sql d'insertion
-		$sql = 'INSERT INTO human VALUES("","'.$firstname.'","'.$name.'")';
+		$sql = 'INSERT INTO human (name, firstname) values("'.$firstname.'","'.$name.'")';
 
 		/*on lance la commande (mysqli_query) et au cas où,
 		on rédige un petit message d'erreur si la requête ne passe pas (or die)
