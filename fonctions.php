@@ -9,7 +9,7 @@ function connectBase(){
 	
 	*/
 	$base = mysqli_connect ('localhost', 'root', 'root');
-	mysqli_select_db ($base, 'dbMael') ;
+	mysqli_select_db ($base, 'Odelin') ;
   /*
 	$base = new PDO('mysql:host=127.0.0.1;dbname=test;charset=utf8', 'root', 'root');
 	
@@ -41,9 +41,5 @@ function get_header(){
 	//Graph/stats
 	echo '<script type="text/javascript" src="plot.js"></script>';
 	echo '<script type="text/javascript" src="stats.js"></script>';
-
-	
-
-
 }
 ?>

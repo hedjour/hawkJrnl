@@ -28,10 +28,10 @@
 		<div class="col-lg-12">
 			<div class="btn-group">
 				<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addBird">Toto</button>-->
+				<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addHuman" onclick="clean_humanform()">Add Human</button>
 				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addBird"  onclick="clean_birdform()">Add Bird</button>
-				<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addJrnl"  onclick="clean_jrnlform()">Journal</button>
-				<button type="button" class="btn btn-info    btn-lg" data-toggle="modal" data-target="#addHuman" onclick="clean_humanform()">Human</button>
-				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addPath"  onclick="clean_pathform()">Path</button>
+				<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addJrnl"  onclick="clean_jrnlform()">Add Journal</button>
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addPath"  onclick="clean_pathform()">Add Run</button>
 			</div>
 		</div>
 	</div>	<!--end addlinks-->
@@ -39,14 +39,14 @@
 <!-- ONGLETS -->
  <div id="onglets">
             <ul><!--list of onglets -->
-                <li><a href="#bird-onglet">Bird's Table and Informations</a></li>
                 <li><a href="#human_infos">Human list</a></li>
-                <li><a href="#path_infos">Path list</a></li>
-                <li><a href="#days_infos">Days list</a></li>
+                <li><a href="#bird_infos">Bird list</a></li>
+                <li><a href="#path_infos">Journal list</a></li>
+                <li><a href="#days_infos">Run list</a></li>
             </ul>
 
 <!-- Zone d'affichage de la table principale birdTable-->
-	<div class="row" id="bird-onglet">
+	<div class="row" id="bird_infos">
 		<!--<div class="row" id="table_birds">-->
 		<div class="col-md-12"><br/><!--Debug-->
 			<div class="table-group table-responsive" style="margin-left: 10px;">
@@ -171,7 +171,7 @@
 			<select name="path" onchange=update_path(this.value) >
 				<?php
 					$base=connectBase();
-					$sql="SELECT * FROM possiblerun";
+					$sql="SELECT * FROM run";
 					$result = mysqli_query($base, $sql) or die ('Erreur SQL !'.$sql.'<br />'.mysqli_error($base));
 
 					while($row = mysqli_fetch_array($result)) {

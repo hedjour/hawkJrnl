@@ -15,7 +15,7 @@ include_once("fonctions.php");
     	 * wild
     	 * captureDate
     	 * Country
-    	 * picture
+    	 * image_id
     	 */
 
 	//nom,
@@ -45,7 +45,7 @@ include_once("fonctions.php");
 		$reponse.="birth undefined";
 		$bug=1;
 	}
-    if ( isset($_POST['dd_cal']) ){
+ /*   if ( isset($_POST['dd_cal']) ){
 		$death_date=$_POST['dd_cal'];
 	}elseif( ! isset($_POST['dd_cal']) ){
 			$death_date="";
@@ -56,7 +56,7 @@ include_once("fonctions.php");
 		$reponse.="owner undefined";
 		$bug=1;
 	}
-    if ( isset($_POST['pub'])  ){ //&& (is_numeric($_POST['pub']))
+ */   if ( isset($_POST['pub'])  ){ //&& (is_numeric($_POST['pub']))
 		$privat=$_POST['pub'];
 	}else{
 		$reponse.="privat status undefined";
@@ -85,7 +85,7 @@ include_once("fonctions.php");
 		}elseif( ! isset($_POST['cd_cal']) ){
 			$captureDate="";
 		}else{
-			$reponse="Capture date is undefined";
+			$reponse.="Capture date is undefined";
 			$bug=1;
 		}
 	 if ( isset($_POST['country'])){ // && (is_numeric($_POST['country']))
@@ -139,7 +139,7 @@ include_once("fonctions.php");
 				$sqlimage='INSERT INTO image (path) VALUES("'.$target_file.'")';
 				mysqli_query($base, $sqlimage) or die ('Erreur SQL image!'.$sql.'<br />'.mysqli_error($base));
 				$getMaxImageID='SELECT MAX(id) FROM image';
-				$picture=mysqli_fetch_assoc(mysqli_query($base, $getMaxImageID))["MAX(id)"] ;
+				$image_id=mysqli_fetch_assoc(mysqli_query($base, $getMaxImageID))["MAX(id)"] ;
 				mysqli_close($base);
 			} else {
 	            $reponse .= "Pb de téléchargement, le fichier n'est pas chargé.<br>";
@@ -147,10 +147,10 @@ include_once("fonctions.php");
 	        }
 	    }
 	} else{
-		//var_dump("no user picture");
-		$picture=1;
-	}*/$picture=1;
-	 //var_dump($picture);
+		//var_dump("no user image_id");
+		$image_id=1;
+	}*/$image_id=1;
+	 //var_dump($image_id);
  if ( (! isset($bug)) || ($bug==0) ){
     $reponse.= 'Bird added';
 
@@ -160,7 +160,7 @@ include_once("fonctions.php");
     $base=connectBase();
 
     //On prépare la commande sql d'insertion
-    $sql = 'INSERT INTO bird (nom, sex, species, birth_date, death_date, owner, privat, father_id, mother_id, wild, captureDate, Country, picture) 
+    $sql = 'INSERT INTO bird (nom, sex, species, birth_date, death_date, owner, privat, father_id, mother_id, wild, captureDate, Country, image_id) 
 	VALUES(
     "'.$nom.'","'.
     $sex.'","'.
@@ -174,7 +174,7 @@ include_once("fonctions.php");
     $wild.'","'.
     $captureDate.'","'.
     $country.'","'.
-    $picture. '" )';
+    $image_id. '" )';
 
     /*on lance la commande (mysqli_query) et au cas où,
     on rédige un petit message d'erreur si la requête ne passe pas (or die)

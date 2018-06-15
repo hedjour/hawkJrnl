@@ -45,9 +45,25 @@
 			<label class="control-label col-sm-2" for="name">Name:</label>
 			<input type=="text" name="name" id="name_path"/>
 		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="description">Description:</label>
-			<textarea name="description" id="description" class="form-control" style="width: 700px; height: 217px;" rows=10 COLS=20 ></textarea>
+		<div  id="champs"  class="form-group">
+			<input type="text" name="node[]" />
+			<script type="text/javascript" >
+				var div = document.getElementById('champs');
+				function addInput(nam){
+					var input = document.createElement("input");
+					input.type = "text";
+					input.name = "node[]";
+					div.appendChild(input);
+				}
+				function addField() {
+					div.appendChild(document.createElement("br"));
+					addInput("node[]");
+				}
+			</script> 
 		</div>
-	<button id="boutonaddHuman" class="btn btn-success btn-md"  type="submit">Send it </button>
+		<div  class="form-group">
+			<button type="button" onclick="addField()" >Add a node</button>
+		</div>
+	<button id="boutonAddPath" class="btn btn-success btn-md"  type="submit">Send it </button>
 </form>
+

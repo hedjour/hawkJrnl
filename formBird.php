@@ -37,7 +37,7 @@
 	 * wild
 	 * captureDate
 	 * Country
-	 * picture
+	 * image_id
 	 */
 	var bird_name= $('#bird_name').val();
 	var sex= $('#sex').val();
@@ -51,13 +51,13 @@
 	var wild= $('#wild').val();
 	var captureDate= $('#cd_cal').val();
 	var country= $('#country').val();
-	var picture= $('#userfile').val(); //$('#country').val();
-	console.log("Verif picture :");
-	console.log(picture);
+	var image_id= $('#userfile').val(); //$('#country').val();
+	console.log("Verif image_id :");
+	console.log(image_id);
 
 			// Je vérifie une première fois pour ne pas lancer la requête HTTP
 			// si je sais que mon PHP renverra une erreur
-			if(bird_name == '' || sex == '' || species == '' || birth_date == '' || owner == '' || privat == '' || father_id == '' ||  mother_id == '' || wild	== '' ) { //* || picture
+			if(bird_name == '' || sex == '' || species == '' || birth_date == '' || owner == '' || privat == '' || father_id == '' ||  mother_id == '' || wild	== '' ) { //* || image_id
 				alert('Les champs nom -'+bird_name+'-\n-sex-'+sex+'- \n species -'+ species +'-\n birth date -'+ birth_date+'-\n owner -'+owner+'-\n privat-'+privat+'-\n father -'+father_id+'-\n and mother -'+mother_id+'- \n wild'+wild);
 				console.log("Send made");
 				console.log(mother_id);

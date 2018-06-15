@@ -238,7 +238,7 @@ $.ajax({
 }///Fin make_stat
 
 ///----------------------------------------------------Edit part--------------------------
-
+/*
 ///BIRD
 function bird_edit_form(id){//Cette fonction modifie le modal et le formulaire de bird_edit
 	$.ajax({
@@ -309,7 +309,9 @@ function human_edit_form(id){
 }
 function clean_humanform(){
 //	document.getElementById("bird-form-title").innerHTML="Add Human";		//Old version
-	document.getElementById("bird-form-title").innerHTML="Add Bird";		//Odelin's try
+//	document.getElementById("bird-form-title").innerHTML="Add Bird";		//Odelin's try
+	
+	document.getElementById("human-form-title").innerHTML="Add Human";		//Odelin's try
 	$('#first_name').val("");
 	$('#name').val("");
 }
@@ -369,7 +371,7 @@ function jrnl_edit_form(id){
 	});
 }
 function clean_jrnlform(){
-	document.getElementById("jrnl-form-title").innerHTML="Add Path";
+	document.getElementById("jrnl-form-title").innerHTML="Add a bird's journey";
 	$('#dat').val("");
 	$('#bird_id').val("7");//TODO adapt to the base
 	$('#weight').val("");
@@ -389,4 +391,4 @@ function wildchange(val){
 		$("#cd_cal").show()
 	}
 	}
-///----------------------------------------------------BIN--------------------------
+///----------------------------------------------------BIN--------------------------*/
