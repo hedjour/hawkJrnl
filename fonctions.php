@@ -2,18 +2,9 @@
 $TODAY=date("Y-m-d");
 $widthL="150px";
 function connectBase(){
-  #Distant
-  /*
-	$base = mysqli_connect ('127.0.0.1', 'mael', 'YJ3mq2Q4');
-	mysqli_select_db ($base, 'dbMael') ;
-	
-	*/
+	//Partie à adapter à la configuration locale.
 	$base = mysqli_connect ('localhost', 'root', 'root');
-	mysqli_select_db ($base, 'Odelin') ;
-  /*
-	$base = new PDO('mysql:host=127.0.0.1;dbname=test;charset=utf8', 'root', 'root');
-	
-	*/
+	mysqli_select_db ($base, 'dbUser') ;
 	return $base;
 };
 
@@ -37,7 +28,7 @@ function get_header(){
 	//Calendar
 	echo '<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>';
 	echo '<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">';
-	
+
 	//Graph/stats
 	echo '<script type="text/javascript" src="plot.js"></script>';
 	echo '<script type="text/javascript" src="stats.js"></script>';
