@@ -6,7 +6,7 @@ $base=connectBase();
 
 //	IMAGE
 $sql_tbl = "
-	CREATE TABLE IF NOT EXISTS IMAGE (
+	CREATE TABLE IF NOT EXISTS image (
 		id INT NOT NULL AUTO_INCREMENT,
 		path VARCHAR(100),
 		PRIMARY KEY (id)
@@ -16,9 +16,9 @@ mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli
 echo("Table created <br/>");
 
 
-//	BIRD
+//	bird
 $sql_tbl = "
-	CREATE TABLE IF NOT EXISTS BIRD (
+	CREATE TABLE IF NOT EXISTS bird (
 		id INT NOT NULL AUTO_INCREMENT,
 		nom VARCHAR(15),
 		sex boolean,
@@ -40,9 +40,9 @@ mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli
 echo("Table created <br/>");
 
 
-//	JRNL
+//	jrnl
 $sql_tbl = "
-	CREATE TABLE IF NOT EXISTS JRNL (
+	CREATE TABLE IF NOT EXISTS jrnl (
 		id INT NOT NULL AUTO_INCREMENT,
 		day DATE,
 		bird_id INT,
@@ -60,9 +60,9 @@ mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli
 echo("Table created <br/>");
 
 
-//	HUMAN
+//	human
 $sql_tbl = "
-	CREATE TABLE IF NOT EXISTS HUMAN (
+	CREATE TABLE IF NOT EXISTS human (
 		id INT NOT NULL AUTO_INCREMENT,
 		name VARCHAR(15),
 		firstname VARCHAR(15),
@@ -74,9 +74,9 @@ mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli
 echo("Table created <br/>");
 
 
-//	NODE
+//	node
 $sql_tbl = "
-	CREATE TABLE IF NOT EXISTS NODE (
+	CREATE TABLE IF NOT EXISTS node (
 		id INT NOT NULL AUTO_INCREMENT,
 		description VARCHAR(20),
 		position INT,
@@ -90,9 +90,9 @@ mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli
 echo("Table created <br/>");
 
 
-//	RUN
+//	run
 $sql_tbl = "
-	CREATE TABLE IF NOT EXISTS RUN (
+	CREATE TABLE IF NOT EXISTS run (
 		id INT NOT NULL AUTO_INCREMENT,
 		length INT,
 		run_name VARCHAR(20),
@@ -105,37 +105,37 @@ echo("Table created <br/>");
 //	//	//	//	//	//	//	//	//	//	//	//	
 //	//	//	ALTER TABLE	//	//	//	//	//	//
 //	//	//	//	//	//	//	//	//	//	//	//	
-//	BIRD
+//	bird
 $sql_tbl = "
-	ALTER TABLE BIRD ADD FOREIGN KEY (image_id) REFERENCES IMAGE (id);
+	ALTER TABLE bird ADD FOREIGN KEY (image_id) REFERENCES IMAGE (id);
 ";
 mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli_error($base)."\n</pre>\n");
 echo("Table altered <br/>");
 
 $sql_tbl = "
-	ALTER TABLE BIRD ADD FOREIGN KEY (owner_id) REFERENCES HUMAN (id);
+	ALTER TABLE bird ADD FOREIGN KEY (owner_id) REFERENCES human (id);
 ";
 mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli_error($base)."\n</pre>\n");
 echo("Table altered <br/>");
 
 
-//	JRNL
+//	jrnl
 $sql_tbl = "
-	ALTER TABLE JRNL ADD FOREIGN KEY (bird_id) REFERENCES BIRD (id);
+	ALTER TABLE jrnl ADD FOREIGN KEY (bird_id) REFERENCES bird (id);
 ";
 mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli_error($base)."\n</pre>\n");
 echo("Table altered <br/>");
 
 $sql_tbl = "
-	ALTER TABLE JRNL ADD FOREIGN KEY (run_id) REFERENCES RUN (id);
+	ALTER TABLE jrnl ADD FOREIGN KEY (run_id) REFERENCES run (id);
 ";
 mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli_error($base)."\n</pre>\n");
 echo("Table altered <br/>");
 
 
-//	NODE
+//	node
 $sql_tbl = "
-	ALTER TABLE NODE ADD FOREIGN KEY (run_id) REFERENCES RUN (id);
+	ALTER TABLE node ADD FOREIGN KEY (run_id) REFERENCES run (id);
 ";
 mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli_error($base)."\n</pre>\n");
 echo("Table altered <br/>");
