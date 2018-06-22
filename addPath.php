@@ -43,18 +43,20 @@
 		//	//	//	//	//	//	//	//	//	//	//	//
 		//	//	// INSERT NODES	//	//	//	//	//	//
 		//	//	//	//	//	//	//	//	//	//	//	//
-
+/*
 		$sql = 'INSERT INTO node (position, description, run_id) VALUES  ' ;
 		for ($i = 0 ; $i < sizeOf($node) ; $i++) {
 			if($i != 0) {
 				$sql += ',';
 			}
 			$sql += '("'.$i.'", "'.$node[$i].'", "'.$runnid.'")'
-		}
+		}*/
 	//	mysqli_query($base, $sql) or die ('Erreur SQL !'.$sql.'<br />'.mysqli_error($base));
 		// on ferme la connexion
 		mysqli_close($base);
-		$reponse="All right job done";
+		
+		$reponse=$sql+ "     run id = "+$runid;
+	//	$reponse="All right job done";
 	}
 echo json_encode(['reponse' => $reponse]);
  ?>

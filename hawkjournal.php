@@ -56,7 +56,7 @@
 					$base=connectBase();
 
 					$sql="SELECT * FROM bird ORDER BY death_date";
-				  $result = mysqli_query($base,$sql) or die ('Erreur SQL !'.$sql.'<br />'.mysqli_error($base));
+				    $result = mysqli_query($base,$sql) or die ('Erreur SQL !'.$sql.'<br />'.mysqli_error($base));
 
 					echo '<thead>
 							<tr>
