@@ -102,10 +102,15 @@ $sql_tbl = "
 mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli_error($base)."\n</pre>\n");
 echo("Table created <br/>");
 
-//	//	//	//	//	//	//	//	//	//	//	//	
+//	//	//	//	//	//	//	//	//	//	//	//
 //	//	//	ALTER TABLE	//	//	//	//	//	//
+<<<<<<< Updated upstream
 //	//	//	//	//	//	//	//	//	//	//	//	
 //	bird
+=======
+//	//	//	//	//	//	//	//	//	//	//	//
+//	BIRD
+>>>>>>> Stashed changes
 $sql_tbl = "
 	ALTER TABLE bird ADD FOREIGN KEY (image_id) REFERENCES IMAGE (id);
 ";
@@ -139,37 +144,3 @@ $sql_tbl = "
 ";
 mysqli_query($base, $sql_tbl ) or die("<pre>Erreur:\nrequete: $sql_tbl\n".mysqli_error($base)."\n</pre>\n");
 echo("Table altered <br/>");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
